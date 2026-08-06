@@ -91,3 +91,25 @@ xlabel('Time Step');
 ylabel('State');
 
 title('Adaptive Kalman Filter Performance');
+%% Performance Evaluation
+
+[RMSE, MAE] = performance_metrics(x_true, x_est);
+
+fprintf('RMSE = %.4f\n', RMSE);
+fprintf('MAE  = %.4f\n', MAE);
+
+
+%% Error Plot
+
+error = x_true - x_est;
+
+figure;
+
+plot(error,'LineWidth',2);
+
+grid on;
+
+xlabel('Time Step');
+ylabel('Estimation Error');
+
+title('Adaptive Kalman Filter Estimation Error');
